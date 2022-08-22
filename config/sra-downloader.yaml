@@ -2,7 +2,6 @@ channels:
   - conda-forge
   - bioconda
   - main
-  - r
 dependencies:
   - coreutils=9.1
   - sra-tools=2.10.1

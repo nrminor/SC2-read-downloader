@@ -57,7 +57,7 @@ process GET_ONT_READS {
 
 	prefetch ${sra_id}
 	fasterq-dump ${sra_id}/${sra_id}.sra \
-	--concatenate-reads --skip-technical --quiet
+	--concatenate-reads --skip-technical
 	gzip ${sra_id}.sra.fastq
 	mv ${sra_id}.sra.fastq.gz ${filename}.fastq.gz
 
@@ -82,7 +82,7 @@ process GET_ILL_READS {
 
 	prefetch ${sra_id}
 	fasterq-dump ${sra_id}/${sra_id}.sra \
-	--split-files --skip-technical --quiet
+	--split-files --skip-technical
 	gzip ${sra_id}.sra_1.fastq ; mv ${sra_id}.sra_1.fastq.gz ${filename}_R1.fastq.gz
 	gzip ${sra_id}.sra_2.fastq ; mv ${sra_id}.sra_2.fastq.gz ${filename}_R2.fastq.gz
 
