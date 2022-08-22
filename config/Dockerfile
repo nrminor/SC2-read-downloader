@@ -2,15 +2,15 @@ FROM continuumio/miniconda3
 
 SHELL ["/bin/bash", "-c"]
 
-ADD prolonged_infection.yaml /tmp/prolonged_infection.yaml
+ADD sra-downloader.yaml /tmp/sra-downloader.yaml
 
-RUN conda env create -f /tmp/prolonged_infection.yaml -n wisc-prolonged-infection python=3.8 \
+RUN conda env create -f /tmp/sra-downloader.yaml -n sra-downloader python=3.8 \
 	&& conda clean --all -f --yes \
 	&& conda init bash \
-	&& echo "conda activate wisc-prolonged-infection" > ~/.bashrc
+	&& echo "conda activate sra-downloader" > ~/.bashrc
 
-ENV PATH /opt/conda/envs/wisc-prolonged-infection/bin:$PATH
+ENV PATH /opt/conda/envs/sra-downloader/bin:$PATH
 
-ENV CONDA_DEFAULT_ENV wisc-prolonged-infection
+ENV CONDA_DEFAULT_ENV sra-downloader
 
 CMD ["/bin/bash"]
